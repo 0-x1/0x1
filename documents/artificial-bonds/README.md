@@ -94,6 +94,7 @@ The canonical numbered-document sequence remains limited to the top-level `docum
 - [Runtime and Relay](runtime-and-relay.md) — replaceable computation, observation boundaries, event-driven existence, and relay direction without selecting a concrete runtime stack.
 - [Device Runtime and Control](device-runtime-and-control.md) — per-host AI runtime availability, spectate/control presentation, default authorization gating, Bond profile direction, and the boundary between Avaia identity and concrete model availability.
 - [Training Signal Boundary](training-signal.md) — bond-agnostic behavioral signals, closed schemas, server validation, correlation limits, and production privacy gates without training on pairwise relationship evidence.
+- [Providers — Future Intent](providers-future-intent.md) — non-normative direction for evolving the current provider connection foundation toward future Avaia-facing publishing and automation without precommitting protocol semantics.
 
 ---
 
