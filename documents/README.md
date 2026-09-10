@@ -39,7 +39,8 @@ The two-digit filename prefix encodes dependency tier. Begin at `00` and proceed
 ## Discovery and Presence
 
 - [Proximity, Relay, and Broadcast](11-proximity-relay-and-broadcast.md) — constant-rate discovery, relay behavior, map activity, and broadcast access.
-- [Map Architecture](12-map-architecture.md) — cell activation, current business projections, future creator projection boundary, rendering, and client privacy. The map is not a live per-Bond location registry.
+- [Map Architecture](12-map-architecture.md) — cell activation, current business projections, future creator projection boundary, rendering, and client privacy. The public `map.registry` is not a live per-Bond location registry.
+- [Bond Location State](12-bond-location-state.md) — owner-submitted Bond coordinate, `live`/`manual` provenance, application authorization roles, Telegram input, privacy boundary, and derived H3 cells.
 - [Business Bonds and Presence](13-business-bonds-and-presence.md) — business-scoped Bond authority, creator-vs-business boundary, business BondChains, registry-backed physical presence, and auction-backed digital presence.
 - [Digital Presence Auction](14-claim-auction.md) — funded bids, optional defense, premium allocation, automatic transfer, and cooldown.
 
@@ -65,6 +66,8 @@ The two-digit filename prefix encodes dependency tier. Begin at `00` and proceed
 **Creator model:** Normative at the role and semantic-boundary level. An ordinary Bond may act as a creator without becoming a BBond; creator offers are unilateral public state; sales and donations remain pairwise; settlement is provider-agnostic; creator map placement cannot claim physical location. Concrete offer, fulfillment, donation, and creator-projection schemas remain open before production.
 
 **Atomic Multi-Bond Settlement:** Draft v1. Core authority, privacy, reveal, and timeout invariants are specified; exact transport timing and external settlement integration remain implementation concerns.
+
+**Bond location:** Draft v1. A Bond may carry owner-submitted operational `location` state with an active WGS84 coordinate, `live` or `manual` provenance, and an accepted timestamp. It is not public `map.registry` state or bilateral truth by itself.
 
 **Map and business layers:** Draft v2. Current business presence classes and auction allocation are specified; creator projections are defined only as a future distinct projection class. Cell activation, registry adapters, business authority, creator placement, timing, and key lifecycle remain open. Current `map.registry` does not expose live per-Bond movement or creator projections.
 
