@@ -1,7 +1,7 @@
 # Bond Location State
 
 **Status:** draft v1  
-**Companions:** [Protocol Laws](00-protocol-laws.md), [Architecture and Data Model](05-architecture-and-data-model.md), [Proximity, Relay, and Broadcast](11-proximity-relay-and-broadcast.md), [Map Architecture](12-map-architecture.md), [0x1 Core and Client Architecture](18-core-and-client-architecture.md)
+**Companions:** [Protocol Laws](00-protocol-laws.md), [Documentation Protocol](01-documentation-protocol.md), [Glossary](02-glossary.md), [Architecture and Data Model](05-architecture-and-data-model.md), [Proximity, Relay, and Broadcast](11-proximity-relay-and-broadcast.md), [Map Architecture](12-map-architecture.md), [0x1 Core and Client Architecture](18-core-and-client-architecture.md)
 
 ## Purpose
 
@@ -131,6 +131,8 @@ Two Bonds resolving to the same cell is proximity input only. It is not evidence
 ## Related Documents
 
 - [Protocol Laws](00-protocol-laws.md)
+- [Documentation Protocol](01-documentation-protocol.md)
+- [Glossary](02-glossary.md)
 - [Architecture and Data Model](05-architecture-and-data-model.md)
 - [Proximity, Relay, and Broadcast](11-proximity-relay-and-broadcast.md)
 - [Map Architecture](12-map-architecture.md)
