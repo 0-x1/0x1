@@ -41,6 +41,71 @@ These states describe the current host's ability to provide the AI runtime. They
 
 A future `nilx-one/ai` implementation may own model selection, download, preparation, capability detection, inference runtime, and AI behavior proposals. It must remain behind the protocol and authority boundaries: model availability or inference output cannot manufacture identity, authority, reciprocity, consent, Relationship truth, or a completed BondChain.
 
+## Portable Bond State and Device Settings
+
+The product distinguishes state that follows a Bond from execution choices that belong only to the current device.
+
+The UI boundary is intentional:
+
+```text
+Bond / Avaia surfaces
+-> Bond-scoped portable state
+-> eligible to follow the same Bond across authorized devices
+
+Settings
+-> current-device execution policy
+-> local to this host/device by default
+```
+
+`Bond-scoped portable state` does not mean that the Bond is serialized as one mutable blob. It means product state explicitly owned by the Bond or its owned AI avatar and defined as portable by its owning contract. Identity continuity, Avaia state, and presentation/configuration may be portable where their owning contracts permit it. The synchronization mechanism must not strengthen authority, manufacture reciprocity, or turn implementation state into BondChain truth.
+
+Device settings describe how the current host materializes and executes that portable state. They may include:
+
+```text
+quantization profile
+compute backend
+context budget
+memory budget
+model/artifact cache
+local storage budget
+power policy
+thermal policy
+runtime fallback policy
+```
+
+These values are not Avaia identity and are not BondChain state. They must not be placed into Bond-scoped synchronization merely because a settings screen can edit them.
+
+The same owned AI Bond may therefore be materialized differently on different devices:
+
+```text
+x0skai
+├── iPhone 15
+│   └── local runtime -> Q4
+└── MacBook Pro 24 GB
+    └── local runtime -> Q16
+```
+
+Both runtimes refer to the same AI Bond. Different quantization, backend, context budget, or cached artifact does not create another Bond, fork Avaia identity, or rewrite interaction history.
+
+The exact quantization vocabulary and model packaging remain implementation details. `Q4` and `Q16` above illustrate different local fidelity profiles; they do not define a protocol encoding.
+
+A host should resolve its concrete runtime profile from local facts rather than from a globally synchronized device label:
+
+```text
+local Settings
++ device capabilities
++ available runtime artifacts
++ current memory constraints
++ battery / thermal conditions
+        |
+        v
+local RuntimeProfile
+```
+
+A manual runtime override on one device remains local to that device by default. A future user-level preference such as a portable quality intent would require an explicit separate contract and still would not make the resulting quantization profile portable state.
+
+Runtime materialization is also independent from signing authority. A Bond may have model artifacts or runtime capability on several devices while device signing authority continues to follow the rules in [Devices and Recovery](../15-devices-and-recovery.md).
+
 ## Spectate and Default Authorization
 
 The current owner/avatar runtime remains observer-gated. `SPECTATE` means the owner selected the spectating runtime mode; it does not mean the avatar is merely visible to the camera.
@@ -128,6 +193,10 @@ The product must not turn a manually assigned `closest_bond_id` into relationshi
 - **DRC9.** `Closest Bond` is derived from Relationship over interaction history rather than manually authoritative state.
 - **DRC10.** `nilx-one/ai` may implement intelligence runtime behavior but must not become the authority for protocol truth.
 - **DRC11.** Provider bindings remain access bindings, not identity roots.
+- **DRC12.** Bond-scoped portable state and device-local execution settings are separate ownership domains.
+- **DRC13.** Quantization, compute backend, context/memory budgets, caches, and power/thermal policy are device-local by default and must not be serialized into Bond-scoped synchronization.
+- **DRC14.** Different local runtime profiles for the same AI Bond do not create different Bonds or different Avaia identities.
+- **DRC15.** Runtime materialization and model availability do not grant device signing authority.
 
 ## Related Documents
 
@@ -135,6 +204,7 @@ The product must not turn a manually assigned `closest_bond_id` into relationshi
 - [Identity](../04-identity.md)
 - [BondChain Interaction Model](../04-bondchain-interaction-model.md)
 - [Protocol Laws](../00-protocol-laws.md)
+- [Devices and Recovery](../15-devices-and-recovery.md)
 - [Identity and Agency](identity-and-agency.md)
 - [Runtime and Relay](runtime-and-relay.md)
 
